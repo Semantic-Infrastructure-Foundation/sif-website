@@ -130,14 +130,21 @@
             }
         });
 
+        // Helper function to unescape HTML entities
+        function unescapeHTML(str) {
+            const doc = new DOMParser().parseFromString('<!doctype html><body>' + str, 'text/html');
+            return doc.body.textContent;
+        }
+
         // Convert markdown code blocks to Mermaid diagrams
         document.addEventListener('DOMContentLoaded', async () => {
             // Find all code blocks with language-mermaid class
             const mermaidBlocks = document.querySelectorAll('code.language-mermaid');
 
             for (const block of mermaidBlocks) {
-                // Get the mermaid code
-                const code = block.textContent;
+                // Get the mermaid code and unescape HTML entities
+                // (markdown processor escapes <, >, &, " which breaks mermaid parsing)
+                const code = unescapeHTML(block.textContent);
 
                 // Create a new div for the rendered diagram
                 const div = document.createElement('div');
