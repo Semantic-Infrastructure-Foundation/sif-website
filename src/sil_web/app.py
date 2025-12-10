@@ -42,11 +42,11 @@ class SecurityHeadersMiddleware(BaseHTTPMiddleware):
         # Content Security Policy
         response.headers["Content-Security-Policy"] = (
             "default-src 'self'; "
-            "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; "
+            "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://analytics-staging.mytia.net; "
             "style-src 'self' 'unsafe-inline'; "
             "img-src 'self' data:; "
             "font-src 'self'; "
-            "connect-src 'self'; "
+            "connect-src 'self' https://analytics-staging.mytia.net; "
             "frame-ancestors 'self';"
         )
 
