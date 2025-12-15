@@ -5,7 +5,9 @@ description: "Production systems proving semantic infrastructure works"
 
 # Research & Production Systems
 
-SIF's research is **grounded in production systems**. We don't just theorize about semantic infrastructure—we build it, test it, and use it in real workflows.
+SIF funds research conducted by the **[Semantic Infrastructure Lab (SIL)](https://semanticinfrastructurelab.org)**, our research division. SIL builds production systems proving semantic infrastructure works.
+
+> **For technical deep-dives:** Visit [semanticinfrastructurelab.org](https://semanticinfrastructurelab.org) for tools documentation, technical essays, and research papers.
 
 ## The Semantic OS Vision
 
@@ -42,7 +44,7 @@ These aren't demos. They're production tools with comprehensive test suites, pac
 
 ---
 
-### Reveal (v0.19.0)
+### Reveal (v0.23.1)
 
 **Layer 5: Human Interfaces**
 *Progressive code exploration for developers and AI agents*
