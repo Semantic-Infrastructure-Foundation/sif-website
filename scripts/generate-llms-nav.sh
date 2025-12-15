@@ -1,3 +1,17 @@
+#!/usr/bin/env bash
+# Generate llms.txt (navigation structure) from SIF website
+# Creates the navigation/index file for LLM consumption
+
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
+OUTPUT_FILE="${PROJECT_ROOT}/static/llms.txt"
+
+echo "Generating llms.txt navigation..."
+echo "Output: $OUTPUT_FILE"
+
+cat > "$OUTPUT_FILE" << 'EOF'
 # Semantic Infrastructure Foundation
 
 > Building the semantic substrate for trustworthy AI
@@ -36,7 +50,7 @@ Start here to understand what we're building:
 ### Production Systems
 
 **Ready to use now:**
-- [reveal](https://github.com/semantic-infrastructure-lab/reveal) - Progressive code exploration (v0.23.1, PyPI)
+- [reveal](https://github.com/semantic-infrastructure-lab/reveal) - Progressive code exploration (v0.19.0, PyPI)
 - [morphogen](https://github.com/semantic-infrastructure-lab/morphogen) - Cross-domain computation engine
 - [tiacad](https://github.com/semantic-infrastructure-lab/tiacad) - Declarative parametric CAD
 - [genesisgraph](https://github.com/semantic-infrastructure-lab/genesisgraph) - Cryptographic provenance tracking
@@ -99,3 +113,14 @@ All core pages + canonical documents + production system documentation
 This site presents the Semantic Infrastructure Foundation's mission, approach, and production systems. For full document content, see /llms-full.txt. The site includes 8 main pages plus 3 canonical documents. All content is in markdown format with a focus on clarity and practical implementation.
 
 **Key distinction**: SIF (Foundation) is the 501(c)(3) nonprofit that funds research. SIL (Lab) is the research organization that builds the systems. This website documents SIF's role in enabling that work.
+EOF
+
+# Get file stats
+file_size=$(du -h "$OUTPUT_FILE" | cut -f1)
+line_count=$(wc -l < "$OUTPUT_FILE")
+
+echo ""
+echo "✅ Generated llms.txt"
+echo "   Size: $file_size"
+echo "   Lines: $line_count"
+echo "   Location: $OUTPUT_FILE"
