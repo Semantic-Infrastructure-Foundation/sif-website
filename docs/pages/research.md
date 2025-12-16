@@ -68,7 +68,7 @@ reveal src/mycode.py            # Structure overview
 reveal src/mycode.py my_function # Extract specific function
 ```
 
-**Repository:** [github.com/scottsen/reveal](https://github.com/scottsen/reveal)
+**Repository:** [github.com/Semantic-Infrastructure-Lab/reveal](https://github.com/Semantic-Infrastructure-Lab/reveal)
 
 ---
 
@@ -94,7 +94,7 @@ Shows that semantic operations can compose correctly. Proves that deterministic,
 - Cross-domain modeling (fluid dynamics + biology + CAD)
 - Auditable computation pipelines
 
-**Repository:** [github.com/scottsen/morphogen](https://github.com/scottsen/morphogen)
+**Repository:** [github.com/Semantic-Infrastructure-Lab/morphogen](https://github.com/Semantic-Infrastructure-Lab/morphogen)
 
 ---
 
@@ -120,7 +120,7 @@ Demonstrates domain-specific semantic infrastructure. Shows how to build on USIR
 - Engineering documentation with provenance
 - Reproducible manufacturing specifications
 
-**Repository:** [github.com/scottsen/tiacad](https://github.com/scottsen/tiacad)
+**Repository:** [github.com/Semantic-Infrastructure-Lab/tiacad](https://github.com/Semantic-Infrastructure-Lab/tiacad)
 
 ---
 
@@ -147,7 +147,7 @@ Enables answering "How do I know this is true?" for AI-generated results. Essent
 - Deepfake detection (distinguish synthetic from real)
 - Supply chain verification (track computational provenance)
 
-**Repository:** [github.com/scottsen/genesisgraph](https://github.com/scottsen/genesisgraph)
+**Repository:** [github.com/Semantic-Infrastructure-Lab/genesisgraph](https://github.com/Semantic-Infrastructure-Lab/genesisgraph)
 
 ---
 
@@ -174,9 +174,9 @@ Agent Ether provides:
 We publish our work continuously:
 
 **Technical documentation:**
-- [SIL Core Principles](https://github.com/scottsen/sil-docs/lab/architecture/SIL_CORE_PRINCIPLES.md)
-- [Semantic OS Architecture](https://github.com/scottsen/sil-docs/lab/architecture/)
-- [Hierarchical Agency Framework](https://github.com/scottsen/sil-docs/docs/canonical/)
+- [SIL Core Principles](https://semanticinfrastructurelab.org/canonical/principles)
+- [Semantic OS Architecture](https://semanticinfrastructurelab.org/canonical/semantic-os-architecture)
+- [Hierarchical Agency Framework](https://semanticinfrastructurelab.org/canonical/hierarchical-agency-framework)
 
 **Strategic documentation:**
 - [Funding Strategy](/funding)

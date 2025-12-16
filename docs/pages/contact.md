@@ -21,12 +21,12 @@ reveal --agent-help  # See what it can do
 
 Try it on your codebase. If you see the value in structure-first exploration, you're seeing the core pattern behind all our work.
 
-**Repository:** [github.com/scottsen/reveal](https://github.com/scottsen/reveal)
+**Repository:** [github.com/Semantic-Infrastructure-Lab/reveal](https://github.com/Semantic-Infrastructure-Lab/reveal)
 
 ### Other Systems
-- **Morphogen:** Deterministic computation framework → [github.com/scottsen/morphogen](https://github.com/scottsen/morphogen)
-- **TiaCAD:** Declarative parametric CAD → [github.com/scottsen/tiacad](https://github.com/scottsen/tiacad)
-- **GenesisGraph:** Cryptographic provenance → [github.com/scottsen/genesisgraph](https://github.com/scottsen/genesisgraph)
+- **Morphogen:** Deterministic computation framework → [github.com/Semantic-Infrastructure-Lab/morphogen](https://github.com/Semantic-Infrastructure-Lab/morphogen)
+- **TiaCAD:** Declarative parametric CAD → [github.com/Semantic-Infrastructure-Lab/tiacad](https://github.com/Semantic-Infrastructure-Lab/tiacad)
+- **GenesisGraph:** Cryptographic provenance → [github.com/Semantic-Infrastructure-Lab/genesisgraph](https://github.com/Semantic-Infrastructure-Lab/genesisgraph)
 
 ---
 

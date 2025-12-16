@@ -157,7 +157,7 @@ SIF exists to make Timeline B possible.
 
 We're early-stage, but we're building in the open.
 
-- **Use our tools:** Try [Reveal](https://github.com/scottsen/reveal), explore the production systems
+- **Use our tools:** Try [Reveal](https://github.com/Semantic-Infrastructure-Lab/reveal), explore the production systems
 - **Follow our work:** Visit our [research page](/research) for technical details
 - **Support the mission:** When funding mechanisms are ready, we'll share options
 - **Collaborate:** Researchers, engineers, advisors welcome → [Contact us](/contact)
