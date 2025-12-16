@@ -42,7 +42,7 @@ SIF requires three complementary forces (not 2, not 1):
 Defines the semantic substrate, USIR architecture, and research direction. Stays in lane: Architecture and research, not operations or governance.
 
 ### Chief Steward (Mission Guardian)
-Guards mission, protects institutional integrity, chairs the board. The immune system—detects bad culture or architecture before it metastasizes. Modeled after Mervin Kelly at Bell Labs: the steward who protected the culture while geniuses like Claude Shannon did the research.
+Guards mission, protects institutional integrity, chairs the board. The immune system—detects bad culture or architecture before it metastasizes. Protects institutional culture while researchers focus on technical work.
 
 → [Learn about the Chief Steward role](/foundation/chief-steward)
 

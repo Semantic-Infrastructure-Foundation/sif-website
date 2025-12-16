@@ -192,7 +192,7 @@ The first 100 individuals who support SIF (any amount ≥$100) during formation 
 - **Permanent recognition** in SIF's founding documentation
 - **Genesis Supporter badge** in community spaces
 - **Annual founder's briefing** - Direct updates from leadership
-- **Historical provenance** - Named in the origin story of semantic infrastructure
+- **Early supporter recognition** - Acknowledged as founding contributors
 
 **Why Genesis Tier?**
 Early believers take real risk on unproven vision. This recognizes that courage.

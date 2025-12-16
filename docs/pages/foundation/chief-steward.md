@@ -69,11 +69,11 @@ Board position (unpaid, standard for nonprofit governance). High influence and l
 
 ---
 
-## Historical Precedent
+## Role Pattern
 
-The Chief Steward role is modeled after **Mervin Kelly** at Bell Labs - the institutional steward who protected the culture and mission while technical geniuses like Claude Shannon did the research.
+The Chief Steward protects institutional integrity while researchers focus on technical work. This separation—governance protecting mission, researchers building systems—has proven essential for long-term research institutions.
 
-**The pattern:** Steward protects institution, genius does the work.
+**The pattern:** Steward guards mission and culture. Researchers build systems. Neither role captures the other.
 
 ---
 

@@ -38,11 +38,23 @@ Human-AI interfaces that scale from structure to detail. Show me the outline, th
 ### Open Standards
 No single entity controls the semantic layer. We build in the open, publish our work, and advocate for adoption across the ecosystem.
 
-## The Bell Labs Inspiration
+## Long-Term Infrastructure Work
 
-SIF aspires to the **Bell Labs model**: long-term fundamental research protected from quarterly pressures, focused on infrastructure that enables entire industries.
+SIF focuses on foundational semantic infrastructure—work that requires patient capital, long-term thinking, and resistance to quarterly pressure.
 
-Bell Labs gave us Unix, C, information theory, the transistor—foundational work that took decades and required patient capital. We need something similar for semantic infrastructure.
+**This kind of work has precedent:**
+
+Institutions that protected researchers from short-term incentives produced Unix, C, information theory, and the transistor. Foundational work that took decades to mature but enabled entire industries.
+
+**What we learned from that pattern:**
+- Infrastructure takes time to mature (years, not quarters)
+- Patient capital enables ambitious research
+- Open standards create more value than proprietary lock-in
+- Mission-driven institutions outlast trend-chasing startups
+
+We follow this approach because it's the only model that works for civilizational infrastructure. Not because we claim to match historical successes, but because the work demands it.
+
+The results will show whether we're doing it right.
 
 ## Current Status: Honest Assessment
 
@@ -127,7 +139,7 @@ Worked across distributed systems infrastructure, security, and platform enginee
 - Multi-agent systems run critical infrastructure reliably
 
 **Honest probability:**
-- 20% chance: Bell Labs-tier success (transform the ecosystem)
+- 20% chance: Transform the ecosystem (widespread adoption, industry standards)
 - 65% chance: Meaningful impact (advance the state of art, influence standards)
 - 15% chance: Fail to achieve critical mass
 
@@ -135,7 +147,7 @@ We think those odds justify the effort.
 
 ## Governance & Funding
 
-**Governance model:** Inspired by Wikimedia Foundation, Mozilla Foundation, and Linux Foundation—balance between mission focus and operational pragmatism. See our [foundation governance](/foundation) for the three-role model (Chief Architect, Chief Steward, Executive Director).
+**Governance model:** Three-role structure (Chief Architect, Chief Steward, Executive Director) balancing mission focus with operational pragmatism. Draws on patterns from Wikimedia, Mozilla, and Linux Foundation. See our [foundation governance](/foundation) for details.
 
 **Funding strategy:** Hybrid model avoiding capture. Max 10% from any single source. Revenue from grants, enterprise support contracts, and philanthropic funding.
 

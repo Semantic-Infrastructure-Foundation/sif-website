@@ -165,11 +165,11 @@ Understanding how to map fuzzy intent (what funders/users want) to structured ca
 
 ---
 
-## Historical Precedent
+## Role Pattern
 
-While the Chief Steward role mirrors Mervin Kelly (institutional guardian), the Executive Director is the **operational implementer** - building the infrastructure that allows the technical vision to become reality.
+The Executive Director is the **operational implementer**—building the organizational infrastructure that allows the technical vision to become reality.
 
-**The pattern:** ED builds the machine, Architect does the research, Steward protects the mission.
+**The pattern:** ED builds the operational machine, Architect does the research, Steward protects the mission.
 
 ---
 

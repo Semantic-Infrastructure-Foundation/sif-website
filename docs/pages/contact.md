@@ -199,7 +199,7 @@ Right now, just Scott. The vision includes a founding team, but commitments have
 Target: 501(c)(3) filed by mid-2025, initial funding secured by Q4 2025, core team assembled by 2026. But plans adapt to reality—we'll update transparently.
 
 **Q: What if you fail?**
-We might. 15% probability by our honest assessment. But the work matters, and someone needs to try. The systems we're building will be useful regardless—semantic infrastructure benefits the ecosystem even if SIF doesn't achieve Bell Labs-tier success.
+We might. 15% probability by our honest assessment. But the work matters, and someone needs to try. The systems we're building will be useful regardless—semantic infrastructure benefits the ecosystem even if the full vision takes decades or the ambitious goals aren't reached.
 
 ---
 
