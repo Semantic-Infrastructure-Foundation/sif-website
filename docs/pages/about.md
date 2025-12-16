@@ -135,7 +135,7 @@ We think those odds justify the effort.
 
 ## Governance & Funding
 
-**Governance model:** Inspired by Wikimedia Foundation, Mozilla Foundation, and Linux Foundation—balance between mission focus and operational pragmatism.
+**Governance model:** Inspired by Wikimedia Foundation, Mozilla Foundation, and Linux Foundation—balance between mission focus and operational pragmatism. See our [foundation governance](/foundation) for the three-role model (Chief Architect, Chief Steward, Executive Director).
 
 **Funding strategy:** Hybrid model avoiding capture. Max 10% from any single source. Revenue from grants, enterprise support contracts, and philanthropic funding.
 

@@ -211,9 +211,9 @@ Early believers take real risk on unproven vision. This recognizes that courage.
 ✅ This website and strategic framework
 
 **What Doesn't Exist Yet:**
-❌ 501(c)(3) status  
-❌ Formal board or governance  
-❌ Any funding beyond founder's time  
+❌ 501(c)(3) status
+❌ Formal board (governance model [documented](/foundation), not yet operational)
+❌ Any funding beyond founder's time
 ❌ Team (just Scott)
 
 **The Ask:**
