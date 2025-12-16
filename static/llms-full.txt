@@ -60,7 +60,7 @@ We're developing:
 
 SIF is in early formation, led by **Scott Senkeresty** (Chief Architect). Four production systems are already proving the vision:
 
-- **Reveal** (v0.19.0) — Progressive code exploration, 2K downloads/month
+- **Reveal** (v0.23.1) — Progressive code exploration, 2K downloads/month
 - **Morphogen** (v0.11) — Deterministic computation with 1,600+ tests
 - **TiaCAD** (v3.1.2) — Declarative parametric CAD with 1,027 tests
 - **GenesisGraph** (v0.3.0) — Cryptographic provenance verification
@@ -246,7 +246,7 @@ SIF exists to make Timeline B possible.
 
 We're early-stage, but we're building in the open.
 
-- **Use our tools:** Try [Reveal](https://github.com/scottsen/reveal), explore the production systems
+- **Use our tools:** Try [Reveal](https://github.com/Semantic-Infrastructure-Lab/reveal), explore the production systems
 - **Follow our work:** Visit our [research page](/research) for technical details
 - **Support the mission:** When funding mechanisms are ready, we'll share options
 - **Collaborate:** Researchers, engineers, advisors welcome → [Contact us](/contact)
@@ -268,7 +268,9 @@ Let's build Timeline B together.
 
 # Research & Production Systems
 
-SIF's research is **grounded in production systems**. We don't just theorize about semantic infrastructure—we build it, test it, and use it in real workflows.
+SIF funds research conducted by the **[Semantic Infrastructure Lab (SIL)](https://semanticinfrastructurelab.org)**, our research division. SIL builds production systems proving semantic infrastructure works.
+
+> **For technical deep-dives:** Visit [semanticinfrastructurelab.org](https://semanticinfrastructurelab.org) for tools documentation, technical essays, and research papers.
 
 ## The Semantic OS Vision
 
@@ -305,7 +307,7 @@ These aren't demos. They're production tools with comprehensive test suites, pac
 
 ---
 
-### Reveal (v0.19.0)
+### Reveal (v0.23.1)
 
 **Layer 5: Human Interfaces**
 *Progressive code exploration for developers and AI agents*
@@ -329,7 +331,7 @@ reveal src/mycode.py            # Structure overview
 reveal src/mycode.py my_function # Extract specific function
 ```
 
-**Repository:** [github.com/scottsen/reveal](https://github.com/scottsen/reveal)
+**Repository:** [github.com/Semantic-Infrastructure-Lab/reveal](https://github.com/Semantic-Infrastructure-Lab/reveal)
 
 ---
 
@@ -355,7 +357,7 @@ Shows that semantic operations can compose correctly. Proves that deterministic,
 - Cross-domain modeling (fluid dynamics + biology + CAD)
 - Auditable computation pipelines
 
-**Repository:** [github.com/scottsen/morphogen](https://github.com/scottsen/morphogen)
+**Repository:** [github.com/Semantic-Infrastructure-Lab/morphogen](https://github.com/Semantic-Infrastructure-Lab/morphogen)
 
 ---
 
@@ -381,7 +383,7 @@ Demonstrates domain-specific semantic infrastructure. Shows how to build on USIR
 - Engineering documentation with provenance
 - Reproducible manufacturing specifications
 
-**Repository:** [github.com/scottsen/tiacad](https://github.com/scottsen/tiacad)
+**Repository:** [github.com/Semantic-Infrastructure-Lab/tiacad](https://github.com/Semantic-Infrastructure-Lab/tiacad)
 
 ---
 
@@ -408,7 +410,7 @@ Enables answering "How do I know this is true?" for AI-generated results. Essent
 - Deepfake detection (distinguish synthetic from real)
 - Supply chain verification (track computational provenance)
 
-**Repository:** [github.com/scottsen/genesisgraph](https://github.com/scottsen/genesisgraph)
+**Repository:** [github.com/Semantic-Infrastructure-Lab/genesisgraph](https://github.com/Semantic-Infrastructure-Lab/genesisgraph)
 
 ---
 
@@ -435,9 +437,9 @@ Agent Ether provides:
 We publish our work continuously:
 
 **Technical documentation:**
-- [SIL Core Principles](https://github.com/scottsen/sil-docs/lab/architecture/SIL_CORE_PRINCIPLES.md)
-- [Semantic OS Architecture](https://github.com/scottsen/sil-docs/lab/architecture/)
-- [Hierarchical Agency Framework](https://github.com/scottsen/sil-docs/docs/canonical/)
+- [SIL Core Principles](https://semanticinfrastructurelab.org/canonical/principles)
+- [Semantic OS Architecture](https://semanticinfrastructurelab.org/canonical/semantic-os-architecture)
+- [Hierarchical Agency Framework](https://semanticinfrastructurelab.org/canonical/hierarchical-agency-framework)
 
 **Strategic documentation:**
 - [Funding Strategy](/funding)
@@ -880,12 +882,12 @@ reveal --agent-help  # See what it can do
 
 Try it on your codebase. If you see the value in structure-first exploration, you're seeing the core pattern behind all our work.
 
-**Repository:** [github.com/scottsen/reveal](https://github.com/scottsen/reveal)
+**Repository:** [github.com/Semantic-Infrastructure-Lab/reveal](https://github.com/Semantic-Infrastructure-Lab/reveal)
 
 ### Other Systems
-- **Morphogen:** Deterministic computation framework → [github.com/scottsen/morphogen](https://github.com/scottsen/morphogen)
-- **TiaCAD:** Declarative parametric CAD → [github.com/scottsen/tiacad](https://github.com/scottsen/tiacad)
-- **GenesisGraph:** Cryptographic provenance → [github.com/scottsen/genesisgraph](https://github.com/scottsen/genesisgraph)
+- **Morphogen:** Deterministic computation framework → [github.com/Semantic-Infrastructure-Lab/morphogen](https://github.com/Semantic-Infrastructure-Lab/morphogen)
+- **TiaCAD:** Declarative parametric CAD → [github.com/Semantic-Infrastructure-Lab/tiacad](https://github.com/Semantic-Infrastructure-Lab/tiacad)
+- **GenesisGraph:** Cryptographic provenance → [github.com/Semantic-Infrastructure-Lab/genesisgraph](https://github.com/Semantic-Infrastructure-Lab/genesisgraph)
 
 ---
 
@@ -1586,4 +1588,4 @@ SIF (Foundation) = 501(c)(3) nonprofit that funds research
 SIL (Lab) = Research organization that builds the systems
 This website documents SIF's role in enabling and funding SIL's work.
 
-Generated: 2025-12-13 22:41:06 UTC
+Generated: 2025-12-16 00:24:18 UTC
