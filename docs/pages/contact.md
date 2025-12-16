@@ -11,7 +11,7 @@ SIF is early-stage, but we're building in the open. Here's how you can engage wi
 
 ## Use the Tools
 
-The fastest way to understand what we're building is to **use the production systems**:
+The fastest way to understand what we're building is to **use the working systems**:
 
 ### Reveal — Progressive Code Exploration
 ```bash
@@ -50,7 +50,7 @@ If you're working on related problems and see potential for collaboration, reach
 
 **Want to contribute code?**
 
-All four production systems are open source:
+All four systems are open source:
 - Bug reports and feature requests welcome
 - Pull requests reviewed thoughtfully
 - Documentation improvements valued

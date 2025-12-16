@@ -45,14 +45,14 @@ We're developing:
 
 ## Current Status
 
-SIF is in early formation, led by **Scott Senkeresty** (Chief Architect). Four production systems are already proving the vision:
+SIF is in early formation, led by **Scott Senkeresty** (Chief Architect). Four working systems are already proving the vision:
 
-- **Reveal** (v0.23.1) — Progressive code exploration, 8.8K total (3.1K/month, 100% organic)
-- **Morphogen** (v0.11) — Deterministic computation with 1,600+ tests
-- **TiaCAD** (v3.1.2) — Declarative parametric CAD with 1,027 tests
-- **GenesisGraph** (v0.3.0) — Cryptographic provenance verification
+- **Reveal** (v0.23.1) — In production: 8.8K downloads (3.1K/month, 100% organic growth)
+- **Morphogen** (v0.11) — Production-grade: Deterministic computation with 1,600+ tests
+- **TiaCAD** (v3.1.2) — Production-grade: Declarative parametric CAD with 1,027 tests
+- **GenesisGraph** (v0.3.0) — Production-grade: Cryptographic provenance verification
 
-These aren't demos. They're production systems demonstrating that semantic infrastructure works.
+These aren't demos. Reveal has external adoption, and all systems demonstrate production-quality engineering that validates the architecture.
 
 ## The Choice
 

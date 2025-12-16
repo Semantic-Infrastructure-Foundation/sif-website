@@ -48,7 +48,7 @@ Bell Labs gave us Unix, C, information theory, the transistor—foundational wor
 
 **What exists today:**
 - **Scott Senkeresty** (founder, Chief Architect) — solo researcher with decade-long commitment
-- **4 production systems** proving the vision (Reveal, Morphogen, TiaCAD, GenesisGraph)
+- **4 working systems** proving the vision: 1 in production with external adoption (Reveal: 8.8K downloads), 3 production-grade research systems (Morphogen, TiaCAD, GenesisGraph)
 - **Extensive strategic documentation** (governance, funding strategy, technical architecture)
 - **Clear roadmap** toward Semantic OS and Agent Ether
 

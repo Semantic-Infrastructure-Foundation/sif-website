@@ -1,11 +1,11 @@
 ---
 title: "Research & Systems"
-description: "Production systems proving semantic infrastructure works"
+description: "Working systems proving semantic infrastructure works"
 ---
 
-# Research & Production Systems
+# Research & Working Systems
 
-SIF funds research conducted by the **[Semantic Infrastructure Lab (SIL)](https://semanticinfrastructurelab.org)**, our research division. SIL builds production systems proving semantic infrastructure works.
+SIF funds research conducted by the **[Semantic Infrastructure Lab (SIL)](https://semanticinfrastructurelab.org)**, our research division. SIL builds working systems proving semantic infrastructure works.
 
 > **For technical deep-dives:** Visit [semanticinfrastructurelab.org](https://semanticinfrastructurelab.org) for tools documentation, technical essays, and research papers.
 
@@ -38,9 +38,9 @@ Multi-agent coordination substrate. The "TCP/IP for AI agents."
 
 ---
 
-## Production Systems (Shipped)
+## Working Systems (Shipped)
 
-These aren't demos. They're production tools with comprehensive test suites, package distributions, and real users.
+These aren't demos. They're working systems with comprehensive test suites, validated engineering, and real-world usage.
 
 ---
 
@@ -256,7 +256,7 @@ Research areas we're actively exploring:
 We're interested in collaborations on semantic memory, provenance systems, and multi-agent coordination. Reach out if you're working on related problems.
 
 **For engineers:**
-All four production systems are open source. Contributions welcome. We need help with scaling, optimization, and ecosystem integration.
+All four systems are open source. Contributions welcome. We need help with scaling, optimization, and ecosystem integration.
 
 **For organizations:**
 Interested in deploying semantic infrastructure? We can advise on architecture, integration, and best practices.
