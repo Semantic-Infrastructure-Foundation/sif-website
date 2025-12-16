@@ -157,7 +157,7 @@ The Semantic Infrastructure Foundation (SIF) follows a **hybrid foundation model
 
 **Why Research-First?**
 - Mission delivery is the strategy
-- Working systems attract funding (Reveal proves this: 2K downloads/month)
+- Working systems attract funding (Reveal proves this: 8.8K total, 3.1K/month, 100% organic)
 - Technical credibility enables partnerships
 
 ---
@@ -232,7 +232,7 @@ Without semantic infrastructure, AI systems will remain epistemically brittle bl
 ### The Working Systems Argument
 
 This isn't vaporware:
-- **Reveal** (2K downloads/month) proves progressive disclosure works
+- **Reveal** (8.8K total, 3.1K/month, 100% organic) proves progressive disclosure works
 - **Morphogen** (1,600+ tests) proves deterministic computation scales
 - **GenesisGraph** proves cryptographic provenance is viable
 - **TIA** (60 projects, 14K+ files) proves semantic OS concepts work

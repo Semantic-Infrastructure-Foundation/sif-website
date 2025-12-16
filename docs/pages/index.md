@@ -47,7 +47,7 @@ We're developing:
 
 SIF is in early formation, led by **Scott Senkeresty** (Chief Architect). Four production systems are already proving the vision:
 
-- **Reveal** (v0.23.1) — Progressive code exploration, 2K downloads/month
+- **Reveal** (v0.23.1) — Progressive code exploration, 8.8K total (3.1K/month, 100% organic)
 - **Morphogen** (v0.11) — Deterministic computation with 1,600+ tests
 - **TiaCAD** (v3.1.2) — Declarative parametric CAD with 1,027 tests
 - **GenesisGraph** (v0.3.0) — Cryptographic provenance verification

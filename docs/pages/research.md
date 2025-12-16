@@ -54,7 +54,7 @@ Reveal shows code structure before detail. Instead of reading 10,000 tokens to f
 
 **Proof points:**
 - **10-150x token reduction** via structure-first exploration
-- **~2,000 downloads/month** on PyPI
+- **8.8K total downloads (3.1K/month, 100% organic)** on PyPI
 - **URI-based adapters** (`python://`, `ast://`, `json://`) for semantic navigation
 - **Code quality checks** (bugs, security, complexity analysis)
 
