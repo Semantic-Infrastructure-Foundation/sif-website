@@ -43,26 +43,52 @@ We're developing:
 - **Progressive disclosure tools** for human-AI interaction
 - **Open standards** that prevent capture by any single entity
 
-## Current Status
+## This Isn't Theoretical
 
-SIF is in early formation, led by **Scott Senkeresty** (Chief Architect). Four working systems are already proving the vision:
+SIF is in early formation, led by **Scott Senkeresty** (Chief Architect). Four production systems are already proving the architecture works:
 
-- **Reveal** (v0.23.1) — In production: 8.8K downloads (3.1K/month, 100% organic growth)
-- **Morphogen** (v0.11) — Production-grade: Deterministic computation with 1,600+ tests
-- **TiaCAD** (v3.1.2) — Production-grade: Declarative parametric CAD with 1,027 tests
-- **GenesisGraph** (v0.3.0) — Production-grade: Cryptographic provenance verification
+### Working Systems
+
+- **[Reveal](https://semanticinfrastructurelab.org/systems/reveal)** (v0.24.0) — In production: 3K+ downloads/month, 100% organic growth
+  - [Try it now](https://semanticinfrastructurelab.org/systems/reveal) · [GitHub](https://github.com/Semantic-Infrastructure-Lab/reveal) · [Read the paper](https://semanticinfrastructurelab.org/essays/progressive-disclosure-for-ai-agents)
+
+- **[Morphogen](https://semanticinfrastructurelab.org/systems/morphogen)** (v0.11) — Production-grade: Deterministic computation with 1,600+ tests
+  - [Documentation](https://semanticinfrastructurelab.org/systems/morphogen) · [GitHub](https://github.com/Semantic-Infrastructure-Lab/morphogen)
+
+- **[TiaCAD](https://github.com/Semantic-Infrastructure-Lab/tiacad)** (v3.1.2) — Production-grade: Declarative parametric CAD with 1,027 tests
+  - [GitHub](https://github.com/Semantic-Infrastructure-Lab/tiacad) · [Documentation](https://semanticinfrastructurelab.org/systems/tiacad)
+
+- **[GenesisGraph](https://semanticinfrastructurelab.org/systems/genesisgraph)** (v0.3.0) — Production-grade: Cryptographic provenance verification
+  - [Documentation](https://semanticinfrastructurelab.org/systems/genesisgraph) · [GitHub](https://github.com/Semantic-Infrastructure-Lab/genesisgraph)
 
 These aren't demos. Reveal has external adoption, and all systems demonstrate production-quality engineering that validates the architecture.
 
-## The Choice
+[Explore all research and systems →](https://semanticinfrastructurelab.org)
+
+## How You Can Help
 
 Timeline A happens by default. Timeline B requires effort.
 
-SIF is building the infrastructure for Timeline B. We're working in the open, building tools that matter, and inviting collaboration from those who share this vision.
+SIF is building the infrastructure for Timeline B. Here's how you can contribute:
+
+### Support the Mission
+- **[Fund the work](/funding)** — Learn about our funding model and how to contribute
+- **[Join governance](/foundation/chief-steward)** — Chief Steward role (for mission-aligned leaders)
+- **[Lead operations](/foundation/executive-director)** — Executive Director role (paid position)
+- **[Explore the foundation](/foundation)** — Governance structure and philosophy
+
+### Engage with the Work
+- **[Read the research](/research)** — Technical papers and research agenda
+- **[Use the tools](https://semanticinfrastructurelab.org)** — Try Reveal and other production systems
+- **[Get in touch](/contact)** — Collaborate, ask questions, share ideas
+
+---
+
+## Current Status
 
 **This is early-stage work.** No 501(c)(3) filed yet. No team beyond Scott. No funding. Just working systems, clear architecture, and a decade-long commitment to solving the right problems.
 
-If you believe semantic infrastructure matters, [learn more about our research](/research) or [get in touch](/contact).
+If you believe semantic infrastructure matters, now is the time to get involved.
 
 ---
 
