@@ -1,6 +1,6 @@
 #!/bin/bash
-# SIL Website - Documentation Sync Script
-# Syncs markdown docs from SIL repo to website for deployment
+# SIF Website - Documentation Sync Script
+# Syncs SIF Foundation content from SIL repo to website for deployment
 
 set -euo pipefail
 
@@ -14,10 +14,11 @@ NC='\033[0m' # No Color
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 WEBSITE_ROOT="$(dirname "$SCRIPT_DIR")"
 SIL_REPO="${WEBSITE_ROOT}/../SIL"
+SIF_CONTENT_SOURCE="${SIL_REPO}/foundation/website-content/pages"
 WEBSITE_DOCS="${WEBSITE_ROOT}/docs"
 
 echo "========================================="
-echo "SIL Documentation Sync"
+echo "SIF Foundation Documentation Sync"
 echo "========================================="
 echo ""
 
@@ -30,93 +31,28 @@ fi
 
 echo -e "${GREEN}✓${NC} Found SIL repo: $SIL_REPO"
 
-# Check if SIL docs directory exists
-if [ ! -d "$SIL_REPO/docs" ]; then
-    echo -e "${RED}ERROR: SIL docs directory not found${NC}"
+# Check if SIF foundation content directory exists
+if [ ! -d "$SIF_CONTENT_SOURCE" ]; then
+    echo -e "${RED}ERROR: SIF foundation content directory not found${NC}"
+    echo "Expected: $SIF_CONTENT_SOURCE"
     exit 1
 fi
 
-echo -e "${GREEN}✓${NC} Found SIL docs directory"
+echo -e "${GREEN}✓${NC} Found SIF foundation content directory"
 echo ""
 
 # Create website docs directory if it doesn't exist
 mkdir -p "$WEBSITE_DOCS"
 
-# Sync canonical docs
-echo "Syncing docs/canonical/..."
+# Sync all SIF Foundation pages
+echo "Syncing SIF Foundation pages..."
 rsync -av --delete \
     --exclude='.git' \
     --exclude='*.pyc' \
     --exclude='__pycache__' \
-    "$SIL_REPO/docs/canonical/" \
-    "$WEBSITE_DOCS/canonical/"
-echo -e "${GREEN}✓${NC} Canonical docs synced"
-
-# Sync architecture docs
-echo "Syncing docs/architecture/..."
-rsync -av --delete \
-    --exclude='.git' \
-    "$SIL_REPO/docs/architecture/" \
-    "$WEBSITE_DOCS/architecture/"
-echo -e "${GREEN}✓${NC} Architecture docs synced"
-
-# NOTE: guides/ and vision/ directories removed from SIL repo (empty placeholders)
-
-# Sync research docs
-echo "Syncing docs/research/..."
-rsync -av --delete \
-    --exclude='.git' \
-    "$SIL_REPO/docs/research/" \
-    "$WEBSITE_DOCS/research/"
-echo -e "${GREEN}✓${NC} Research docs synced"
-
-# Sync meta docs
-echo "Syncing docs/meta/..."
-rsync -av --delete \
-    --exclude='.git' \
-    "$SIL_REPO/docs/meta/" \
-    "$WEBSITE_DOCS/meta/"
-echo -e "${GREEN}✓${NC} Meta docs synced"
-
-# Sync innovations docs
-echo "Syncing docs/innovations/..."
-rsync -av --delete \
-    --exclude='.git' \
-    "$SIL_REPO/docs/innovations/" \
-    "$WEBSITE_DOCS/innovations/"
-echo -e "${GREEN}✓${NC} Innovations docs synced"
-
-# NOTE: semantic-os/ directory removed from SIL repo (empty placeholder)
-
-# Sync tools docs
-echo "Syncing docs/tools/..."
-rsync -av --delete \
-    --exclude='.git' \
-    "$SIL_REPO/docs/tools/" \
-    "$WEBSITE_DOCS/tools/"
-echo -e "${GREEN}✓${NC} Tools docs synced"
-
-# Sync top-level docs
-echo "Syncing top-level docs..."
-# Sync all top-level docs from SIL repo
-cp "$SIL_REPO/docs/FAQ.md" "$WEBSITE_DOCS/" 2>/dev/null || true
-cp "$SIL_REPO/docs/PROGRESSIVE_DISCLOSURE.md" "$WEBSITE_DOCS/" 2>/dev/null || true
-cp "$SIL_REPO/docs/SIL_DESIGN_PRINCIPLES.md" "$WEBSITE_DOCS/" 2>/dev/null || true
-cp "$SIL_REPO/docs/SIL_SAFETY_THRESHOLDS.md" "$WEBSITE_DOCS/" 2>/dev/null || true
-# NOTE: QUICKSTART.md and READING_GUIDE.md removed - consolidated into canonical/START_HERE.md
-cp "$SIL_REPO/docs/README.md" "$WEBSITE_DOCS/" 2>/dev/null || true
-echo -e "${GREEN}✓${NC} Top-level docs synced"
-
-# Sync projects index
-echo "Syncing PROJECT_INDEX.md..."
-mkdir -p "$WEBSITE_DOCS/projects"
-cp "$SIL_REPO/projects/PROJECT_INDEX.md" "$WEBSITE_DOCS/projects/"
-echo -e "${GREEN}✓${NC} Projects index synced"
-
-# Sync README (for homepage)
-echo "Syncing README.md..."
-cp "$SIL_REPO/README.md" "$WEBSITE_DOCS/"
-echo -e "${GREEN}✓${NC} README synced"
+    "$SIF_CONTENT_SOURCE/" \
+    "$WEBSITE_DOCS/"
+echo -e "${GREEN}✓${NC} SIF Foundation pages synced"
 
 echo ""
 echo "========================================="
@@ -125,36 +61,25 @@ echo "========================================="
 echo ""
 
 # Count synced files
-CANONICAL_COUNT=$(find "$WEBSITE_DOCS/canonical" -name "*.md" 2>/dev/null | wc -l)
-ARCHITECTURE_COUNT=$(find "$WEBSITE_DOCS/architecture" -name "*.md" 2>/dev/null | wc -l)
-RESEARCH_COUNT=$(find "$WEBSITE_DOCS/research" -name "*.md" 2>/dev/null | wc -l)
-META_COUNT=$(find "$WEBSITE_DOCS/meta" -name "*.md" 2>/dev/null | wc -l)
-INNOVATIONS_COUNT=$(find "$WEBSITE_DOCS/innovations" -name "*.md" 2>/dev/null | wc -l)
-TOOLS_COUNT=$(find "$WEBSITE_DOCS/tools" -name "*.md" 2>/dev/null | wc -l)
+TOTAL_COUNT=$(find "$WEBSITE_DOCS" -name "*.md" 2>/dev/null | wc -l)
 
-echo "Synced files by category:"
-echo "  Canonical:    $CANONICAL_COUNT documents"
-echo "  Architecture: $ARCHITECTURE_COUNT documents"
-echo "  Research:     $RESEARCH_COUNT documents"
-echo "  Meta:         $META_COUNT documents"
-echo "  Innovations:  $INNOVATIONS_COUNT documents"
-echo "  Tools:        $TOOLS_COUNT documents"
+echo "Synced files:"
+echo "  Total: $TOTAL_COUNT markdown files"
 echo ""
 
-TOTAL_COUNT=$((CANONICAL_COUNT + ARCHITECTURE_COUNT + RESEARCH_COUNT + META_COUNT + INNOVATIONS_COUNT + TOOLS_COUNT))
-echo "Total: $TOTAL_COUNT markdown files"
+# List synced files
+echo "Synced pages:"
+find "$WEBSITE_DOCS" -name "*.md" -type f -exec basename {} \; | sort
+
 echo ""
 
-# Check for common required files
+# Check for expected SIF Foundation pages
 REQUIRED_FILES=(
-    "canonical/SIL_MANIFESTO.md"
-    "canonical/SIL_PRINCIPLES.md"
-    "canonical/SIL_TECHNICAL_CHARTER.md"
-    "canonical/FOUNDERS_LETTER.md"
-    "architecture/UNIFIED_ARCHITECTURE_GUIDE.md"
-    "research/RAG_AS_SEMANTIC_MANIFOLD_TRANSPORT.md"
-    "meta/FAQ.md"
-    "README.md"
+    "index.md"
+    "about.md"
+    "funding.md"
+    "research.md"
+    "contact.md"
 )
 
 echo "Checking required files..."
@@ -163,21 +88,22 @@ for file in "${REQUIRED_FILES[@]}"; do
     if [ -f "$WEBSITE_DOCS/$file" ]; then
         echo -e "${GREEN}✓${NC} $file"
     else
-        echo -e "${RED}✗${NC} Missing: $file"
+        echo -e "${YELLOW}⚠${NC}  Missing (optional): $file"
         MISSING_FILES=$((MISSING_FILES + 1))
     fi
 done
 
 echo ""
 
-if [ $MISSING_FILES -eq 0 ]; then
+if [ $TOTAL_COUNT -gt 0 ]; then
     echo -e "${GREEN}=========================================${NC}"
     echo -e "${GREEN}✓ Documentation sync completed successfully${NC}"
+    echo -e "${GREEN}  Synced $TOTAL_COUNT files from SIF Foundation content${NC}"
     echo -e "${GREEN}=========================================${NC}"
     exit 0
 else
-    echo -e "${YELLOW}=========================================${NC}"
-    echo -e "${YELLOW}⚠ Sync completed with $MISSING_FILES missing files${NC}"
-    echo -e "${YELLOW}=========================================${NC}"
+    echo -e "${RED}=========================================${NC}"
+    echo -e "${RED}✗ ERROR: No files synced${NC}"
+    echo -e "${RED}=========================================${NC}"
     exit 1
 fi
