@@ -1,5 +1,5 @@
 #!/bin/bash
-# SIL Website - Container Registry Deployment Script
+# SIF Website - Container Registry Deployment Script
 # Follows TIA Canonical Deployment Pattern
 #
 # Usage:

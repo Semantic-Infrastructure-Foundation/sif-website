@@ -1,16 +1,16 @@
 ---
-title: "SIL Website - Container Deployment Guide"
-id: "sil-website-container-deployment-guide"
-uri: "doc://projects/sil-website/DEPLOYMENT.md"
+title: "SIF Website - Container Deployment Guide"
+id: "sif-website-container-deployment-guide"
+uri: "doc://projects/sif-website/DEPLOYMENT.md"
 type: "deployment-guide"
 status: "production-ready"
 version: "1.0"
 created: "2025-11-28"
-updated: "2025-11-28"
+updated: "2025-12-16"
 authors:
   - "user:scottsen"
   - "agent:claude"
-project: "sil-website"
+project: "sif-website"
 implements:
   - "doc://infrastructure/DEPLOYMENT_STRATEGY_2025.md"
   - "doc://infrastructure/HYBRID_DEPLOYMENT_ARCHITECTURE_2025.md"
@@ -18,10 +18,10 @@ references:
   - "doc://guides/CONTAINERIZATION_USER_GUIDE.md"
   - "doc://infrastructure/STATUS_CURRENT.md"
 relates_to:
-  - "project://sil-website"
-  - "project://SIL"
+  - "project://sif-website"
+  - "project://SIF"
 beth_topics:
-  - "sil-website"
+  - "sif-website"
   - "container-deployment"
   - "deployment-guide"
   - "registry-workflow"
@@ -31,7 +31,7 @@ beth_topics:
 tags:
   - "deployment"
   - "containers"
-  - "sil-website"
+  - "sif-website"
   - "registry"
   - "staging"
   - "production"
@@ -42,20 +42,20 @@ category: "deployment-documentation"
 subcategory: "container-deployment"
 priority: "high"
 business_impact: "website-deployment"
-technical_scope: "sil-website-infrastructure"
+technical_scope: "sif-website-infrastructure"
 infrastructure:
   registry: "registry.mytia.net"
   staging_server: "tia-staging"
   production_server: "tia-apps"
-  staging_url: "https://sil-staging.mytia.net"
-  production_url: "https://semanticinfrastructurelab.org"
+  staging_url: "https://sif-staging.mytia.net"
+  production_url: "https://semanticinfrastructurefoundation.org"
 tier: 1
 audience: "all"
 estimated_read_time: "15 min"
-summary: "Complete container-based deployment guide for SIL website following TIA canonical deployment pattern. Covers build, registry push, staging/production deployment, monitoring, and troubleshooting."
+summary: "Complete container-based deployment guide for SIF website following TIA canonical deployment pattern. Covers build, registry push, staging/production deployment, monitoring, and troubleshooting."
 ---
 
-# SIL Website - Container Deployment Guide
+# SIF Website - Container Deployment Guide
 
 **Last Updated:** 2025-12-08
 **Status:** Production Ready ✅
@@ -65,9 +65,9 @@ summary: "Complete container-based deployment guide for SIL website following TI
 This guide follows the **TIA Canonical Deployment Pattern** using container registry workflow.
 
 **Infrastructure:**
-- **Registry:** `registry.mytia.net/sil-website`
-- **Staging:** `tia-staging` → Port 8080 → https://sil-staging.mytia.net
-- **Production:** `tia-apps` → Port 8010 → https://semanticinfrastructurelab.org
+- **Registry:** `registry.mytia.net/sif-website`
+- **Staging:** `tia-staging` → Port 8082 → https://sif-staging.mytia.net
+- **Production:** `tia-apps` → Port 8011 → https://semanticinfrastructurefoundation.org
 
 ---
 
@@ -89,7 +89,7 @@ This guide follows the **TIA Canonical Deployment Pattern** using container regi
 ┌─────────────────────────────────────────────────────────────┐
 │                    LOCAL DEVELOPMENT                         │
 ├─────────────────────────────────────────────────────────────┤
-│  1. Build container image with SIL docs baked in            │
+│  1. Build container image with SIF docs baked in            │
 │  2. Tag with semantic version                                │
 │  3. Test locally on port 8000                                │
 │  4. Push to registry.mytia.net                               │
@@ -99,9 +99,9 @@ This guide follows the **TIA Canonical Deployment Pattern** using container regi
 ┌─────────────────────────────────────────────────────────────┐
 │                  CONTAINER REGISTRY                          │
 ├─────────────────────────────────────────────────────────────┤
-│  registry.mytia.net/sil-website:v1.0.0                      │
-│  registry.mytia.net/sil-website:staging                     │
-│  registry.mytia.net/sil-website:latest                      │
+│  registry.mytia.net/sif-website:v1.0.0                      │
+│  registry.mytia.net/sif-website:staging                     │
+│  registry.mytia.net/sif-website:latest                      │
 └─────────────────────────────────────────────────────────────┘
                             │
                             ▼
@@ -109,8 +109,8 @@ This guide follows the **TIA Canonical Deployment Pattern** using container regi
 │              tia-proxy (CENTRAL REVERSE PROXY)               │
 ├─────────────────────────────────────────────────────────────┤
 │  nginx (443) routes to backend containers:                   │
-│  - sil-staging.mytia.net      → 10.108.0.8:8080 (staging)   │
-│  - semanticinfrastructurelab.org → 165.227.98.17:8010 (prod)│
+│  - sif-staging.mytia.net      → 10.108.0.8:8082 (staging)   │
+│  - semanticinfrastructurefoundation.org → 165.227.98.17:8011 (prod)│
 │  Upstreams: /etc/nginx/conf.d/tia-upstreams.conf            │
 │  Site config: /etc/nginx/sites-available/                    │
 └─────────────────────────────────────────────────────────────┘
@@ -120,8 +120,8 @@ This guide follows the **TIA Canonical Deployment Pattern** using container regi
 │   STAGING (tia-staging)  │  │  PRODUCTION (tia-apps)       │
 ├──────────────────────────┤  ├──────────────────────────────┤
 │  IP: 10.108.0.8          │  │  IP: 165.227.98.17           │
-│  Container: 8080→8000    │  │  Container: 8010→8000        │
-│  Bind: 10.108.0.8:8080   │  │  Bind: 0.0.0.0:8010          │
+│  Container: 8082→8000    │  │  Container: 8011→8000        │
+│  Bind: 10.108.0.8:8082   │  │  Bind: 0.0.0.0:8011          │
 │  Health: /health         │  │  Health: /health             │
 └──────────────────────────┘  └──────────────────────────────┘
 ```
@@ -139,20 +139,20 @@ This guide follows the **TIA Canonical Deployment Pattern** using container regi
 
 ```bash
 # Navigate to project directory
-cd /home/scottsen/src/projects/sil-website
+cd /home/scottsen/src/projects/sif-website
 
 # Build with version tag
 VERSION="v1.0.0"  # Use semantic versioning
-podman build -t registry.mytia.net/sil-website:$VERSION .
+podman build -t registry.mytia.net/sif-website:$VERSION .
 
 # Tag for environments
-podman tag registry.mytia.net/sil-website:$VERSION registry.mytia.net/sil-website:staging
-podman tag registry.mytia.net/sil-website:$VERSION registry.mytia.net/sil-website:latest
+podman tag registry.mytia.net/sif-website:$VERSION registry.mytia.net/sif-website:staging
+podman tag registry.mytia.net/sif-website:$VERSION registry.mytia.net/sif-website:latest
 ```
 
 **What gets baked into the container:**
 - ✅ Python application code
-- ✅ SIL docs from `/home/scottsen/src/projects/SIL/docs`
+- ✅ SIF docs from `/home/scottsen/src/projects/SIL/foundation/website-content`
 - ✅ All dependencies (FastHTML, Markdown, etc.)
 - ✅ Health check endpoint
 - ❌ No secrets (use environment variables)
@@ -162,8 +162,8 @@ podman tag registry.mytia.net/sil-website:$VERSION registry.mytia.net/sil-websit
 ```bash
 # Run container locally
 podman run -p 8000:8000 \
-  --name sil-website-test \
-  registry.mytia.net/sil-website:$VERSION
+  --name sif-website-test \
+  registry.mytia.net/sif-website:$VERSION
 
 # Test health endpoint
 curl http://localhost:8000/health
@@ -172,11 +172,11 @@ curl http://localhost:8000/health
 curl http://localhost:8000/
 
 # View logs
-podman logs -f sil-website-test
+podman logs -f sif-website-test
 
 # Cleanup
-podman stop sil-website-test
-podman rm sil-website-test
+podman stop sif-website-test
+podman rm sif-website-test
 ```
 
 ### Step 3: Push to Registry
@@ -186,9 +186,9 @@ podman rm sil-website-test
 podman login registry.mytia.net
 
 # Push all tags
-podman push registry.mytia.net/sil-website:$VERSION
-podman push registry.mytia.net/sil-website:staging
-podman push registry.mytia.net/sil-website:latest
+podman push registry.mytia.net/sif-website:$VERSION
+podman push registry.mytia.net/sif-website:staging
+podman push registry.mytia.net/sif-website:latest
 
 # Verify push
 curl https://registry.mytia.net/v2/sil-website/tags/list
@@ -201,38 +201,38 @@ curl https://registry.mytia.net/v2/sil-website/tags/list
 ssh tia-staging
 
 # Pull latest staging image
-podman pull registry.mytia.net/sil-website:staging
+podman pull registry.mytia.net/sif-website:staging
 
 # Stop existing container
-podman stop sil-website-staging || true
-podman rm sil-website-staging || true
+podman stop sif-website-staging || true
+podman rm sif-website-staging || true
 
 # Run new container
 podman run -d \
-  --name sil-website-staging \
+  --name sif-website-staging \
   -p 127.0.0.1:8080:8000 \
   --health-cmd="curl -f http://localhost:8000/health || exit 1" \
   --health-interval=30s \
   --health-timeout=5s \
   --health-retries=3 \
-  registry.mytia.net/sil-website:staging
+  registry.mytia.net/sif-website:staging
 
 # Check health
-podman healthcheck run sil-website-staging
+podman healthcheck run sif-website-staging
 
 # Check logs
-podman logs -f sil-website-staging
+podman logs -f sif-website-staging
 ```
 
 ### Step 5: Verify Staging
 
 ```bash
 # From local machine
-curl -f https://sil-staging.mytia.net/health
-curl -f https://sil-staging.mytia.net/ | head -20
+curl -f https://sif-staging.mytia.net/health
+curl -f https://sif-staging.mytia.net/ | head -20
 
 # Check nginx is proxying correctly
-ssh tia-staging 'curl -f http://localhost:8080/health'
+ssh tia-staging 'curl -f http://localhost:8082/health'
 ```
 
 ### Step 6: Deploy to Production
@@ -242,21 +242,21 @@ ssh tia-staging 'curl -f http://localhost:8080/health'
 ssh tia-apps
 
 # Pull latest production image
-podman pull registry.mytia.net/sil-website:latest
+podman pull registry.mytia.net/sif-website:latest
 
 # Stop existing container
-podman stop sil-website || true
-podman rm sil-website || true
+podman stop sif-website || true
+podman rm sif-website || true
 
 # Run new container
 podman run -d \
-  --name sil-website \
-  -p 0.0.0.0:8010:8000 \
+  --name sif-website \
+  -p 0.0.0.0:8011:8000 \
   --health-cmd="curl -f http://localhost:8000/health || exit 1" \
   --health-interval=30s \
   --health-timeout=5s \
   --health-retries=3 \
-  registry.mytia.net/sil-website:latest
+  registry.mytia.net/sif-website:latest
 
 # Check health
 podman healthcheck run sil-website
@@ -269,12 +269,12 @@ podman logs -f sil-website
 
 ```bash
 # From local machine
-curl -f https://semanticinfrastructurelab.org/health
-curl -f https://semanticinfrastructurelab.org/ | head -20
+curl -f https://semanticinfrastructurefoundation.org/health
+curl -f https://semanticinfrastructurefoundation.org/ | head -20
 
 # Verify all pages load
-curl -f https://semanticinfrastructurelab.org/projects
-curl -f https://semanticinfrastructurelab.org/docs/manifesto
+curl -f https://semanticinfrastructurefoundation.org/projects
+curl -f https://semanticinfrastructurefoundation.org/docs/manifesto
 ```
 
 ---
@@ -310,7 +310,7 @@ To run sil-website as a systemd service on production:
 
 ```bash
 # Copy service file
-sudo cp deploy/sil-website.service /etc/systemd/system/
+sudo cp deploy/sif-website.service /etc/systemd/system/
 
 # Reload systemd
 sudo systemctl daemon-reload
@@ -322,10 +322,10 @@ sudo systemctl enable sil-website
 sudo systemctl start sil-website
 
 # Check status
-sudo systemctl status sil-website
+sudo systemctl status sif-website
 
 # View logs
-sudo journalctl -u sil-website -f
+sudo journalctl -u sif-website -f
 ```
 
 **Service features:**
@@ -347,23 +347,23 @@ User → tia-proxy (nginx/SSL) → backend container
 
 **Staging:**
 ```
-https://sil-staging.mytia.net
+https://sif-staging.mytia.net
   → tia-proxy nginx (443)
-  → upstream sil_website_staging (10.108.0.8:8080)
+  → upstream sil_website_staging (10.108.0.8:8082)
   → container:8000
 ```
 
 **Production:**
 ```
-https://semanticinfrastructurelab.org
+https://semanticinfrastructurefoundation.org
   → tia-proxy nginx (443)
-  → upstream sil_website_production (165.227.98.17:8010)
+  → upstream sil_website_production (165.227.98.17:8011)
   → container:8000
 ```
 
 **Configuration files (on tia-proxy):**
 - Upstreams: `/etc/nginx/conf.d/tia-upstreams.conf`
-- Site config: `/etc/nginx/sites-available/semanticinfrastructurelab.org`
+- Site config: `/etc/nginx/sites-available/semanticinfrastructurefoundation.org`
 
 **Useful commands (on tia-proxy):**
 ```bash
@@ -388,21 +388,21 @@ If deployment fails:
 curl https://registry.mytia.net/v2/sil-website/tags/list
 
 # Pull specific version
-podman pull registry.mytia.net/sil-website:v0.9.0
+podman pull registry.mytia.net/sif-website:v0.9.0
 
 # Run previous version
-podman run -d --name sil-website \
-  -p 0.0.0.0:8010:8000 \
-  registry.mytia.net/sil-website:v0.9.0
+podman run -d --name sif-website \
+  -p 0.0.0.0:8011:8000 \
+  registry.mytia.net/sif-website:v0.9.0
 ```
 
 **Or tag previous version as latest:**
 
 ```bash
 # Locally, tag old version as latest
-podman pull registry.mytia.net/sil-website:v0.9.0
-podman tag registry.mytia.net/sil-website:v0.9.0 registry.mytia.net/sil-website:latest
-podman push registry.mytia.net/sil-website:latest
+podman pull registry.mytia.net/sif-website:v0.9.0
+podman tag registry.mytia.net/sif-website:v0.9.0 registry.mytia.net/sif-website:latest
+podman push registry.mytia.net/sif-website:latest
 
 # Then redeploy using standard workflow
 ```
@@ -421,7 +421,7 @@ podman logs sil-website
 podman inspect sil-website
 
 # Test image locally
-podman run -it --rm registry.mytia.net/sil-website:latest /bin/bash
+podman run -it --rm registry.mytia.net/sif-website:latest /bin/bash
 ```
 
 ### Health check failing
@@ -460,10 +460,10 @@ ssh tia-apps 'sudo systemctl status nginx'
 ssh tia-apps 'sudo nginx -t'
 
 # Check nginx logs
-ssh tia-apps 'sudo tail -f /var/log/nginx/sil-website-error.log'
+ssh tia-apps 'sudo tail -f /var/log/nginx/sif-website-error.log'
 
 # Verify container is listening
-ssh tia-apps 'curl http://localhost:8010/health'
+ssh tia-apps 'curl http://localhost:8011/health'
 ```
 
 ### Docs not updating after sync (IMPORTANT)
@@ -476,7 +476,7 @@ ssh tia-apps 'curl http://localhost:8010/health'
 
 ```bash
 # Option 1: Build with --no-cache
-podman build --no-cache -t registry.mytia.net/sil-website:v1.0.x .
+podman build --no-cache -t registry.mytia.net/sif-website:v1.0.x .
 
 # Option 2: Touch docs to bust cache (less reliable)
 touch docs/.cache-bust
@@ -491,13 +491,13 @@ touch docs/.cache-bust
 
 ### 502 Bad Gateway on staging
 
-**Symptom:** Container is running, `curl localhost:8080` works on tia-staging, but https://sil-staging.mytia.net returns 502.
+**Symptom:** Container is running, `curl localhost:8082` works on tia-staging, but https://sif-staging.mytia.net returns 502.
 
-**Cause:** Container bound to `127.0.0.1:8080` but nginx proxy on tia-proxy reaches `10.108.0.8:8080` (private IP).
+**Cause:** Container bound to `127.0.0.1:8080` but nginx proxy on tia-proxy reaches `10.108.0.8:8082` (private IP).
 
 **Architecture:**
 ```
-tia-proxy (nginx) → 10.108.0.8:8080 → tia-staging container
+tia-proxy (nginx) → 10.108.0.8:8082 → tia-staging container
 ```
 
 **Fix:** Bind to private IP, not localhost:
@@ -507,17 +507,17 @@ tia-proxy (nginx) → 10.108.0.8:8080 → tia-staging container
 podman run -d -p 127.0.0.1:8080:8000 ...
 
 # Correct (accessible from proxy):
-podman run -d -p 10.108.0.8:8080:8000 ...
+podman run -d -p 10.108.0.8:8082:8000 ...
 ```
 
 **Verification:**
 ```bash
 # Check binding
-ssh tia-staging 'podman port sil-website-staging'
-# Should show: 8000/tcp -> 10.108.0.8:8080
+ssh tia-staging 'podman port sif-website-staging'
+# Should show: 8000/tcp -> 10.108.0.8:8082
 
 # Test from proxy
-ssh tia-proxy 'curl http://10.108.0.8:8080/health'
+ssh tia-proxy 'curl http://10.108.0.8:8082/health'
 ```
 
 ---
@@ -591,13 +591,13 @@ podman stats sil-website
 
 ```bash
 # Health endpoint (staging)
-curl -f https://sil-staging.mytia.net/health
+curl -f https://sif-staging.mytia.net/health
 
 # Health endpoint (production)
-curl -f https://semanticinfrastructurelab.org/health
+curl -f https://semanticinfrastructurefoundation.org/health
 
 # Check response time
-time curl -f https://semanticinfrastructurelab.org/
+time curl -f https://semanticinfrastructurefoundation.org/
 ```
 
 ---
@@ -610,7 +610,7 @@ time curl -f https://semanticinfrastructurelab.org/
 | **tia-staging** | Staging server | SSH host |
 | **tia-apps** | Production server | SSH host |
 | **tia-proxy** | Reverse proxy / Load balancer | TIA infrastructure |
-| **GitHub** | Source code | https://github.com/scottsen/sil-website |
+| **GitHub** | Source code | https://github.com/scottsen/sif-website |
 
 ---
 
@@ -625,5 +625,5 @@ time curl -f https://semanticinfrastructurelab.org/
 
 ## Contact
 
-**Issues:** Report at https://github.com/scottsen/sil-website/issues
+**Issues:** Report at https://github.com/scottsen/sif-website/issues
 **TIA Infrastructure:** See TIA docs at `~/src/tia/docs/infrastructure/`

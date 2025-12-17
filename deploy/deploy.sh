@@ -1,5 +1,5 @@
 #!/bin/bash
-# SIL Website Deployment Script
+# SIF Website Deployment Script
 # Usage: ./deploy/deploy.sh [development|staging|production]
 
 set -e
@@ -7,7 +7,7 @@ set -e
 PROFILE="${1:-development}"
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
-echo "🚀 SIL Website Deployment"
+echo "🚀 SIF Website Deployment"
 echo "=========================="
 echo "Profile: $PROFILE"
 echo "Project: $PROJECT_DIR"
