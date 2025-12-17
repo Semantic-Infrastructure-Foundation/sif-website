@@ -74,12 +74,39 @@ This guide follows the **TIA Canonical Deployment Pattern** using container regi
 ## Quick Start
 
 ```bash
-# Build, push, and deploy to staging
+# 1. Build, push, and deploy to staging
 ./deploy/deploy-container.sh staging
 
-# Deploy to production
+# 2. Run smoke tests
+./scripts/smoke-test.sh staging
+
+# 3. Deploy to production (after staging verification)
 ./deploy/deploy-container.sh production
+./scripts/smoke-test.sh production
 ```
+
+---
+
+## Content Management
+
+**SIF uses simple directory-based content management:**
+
+- **Source**: `/projects/SIL/foundation/website-content/pages/`
+- **All files public**: ~5-6 markdown files (no internal content)
+- **Sync**: `./scripts/sync-docs.sh` (simple rsync)
+
+**Before deploying**, sync content from SIL repo:
+```bash
+cd /home/scottsen/src/projects/sif-website
+./scripts/sync-docs.sh   # Sync SIF Foundation pages
+```
+
+**Deployment workflow**:
+1. Sync docs from SIL Foundation directory
+2. Deployment script bakes docs into container
+3. Smoke tests verify critical pages load
+
+SIF Foundation has no internal documentation (all content is public-facing).
 
 ---
 
