@@ -19,7 +19,7 @@ This is the public-facing website for the Semantic Infrastructure Foundation, bu
 This project uses a clean layered architecture following SIL's development principles:
 
 ```
-src/sil_web/
+src/sif_web/
 ├── domain/       # Pure models (Project, Document, Author)
 ├── services/     # Business logic (ContentService, GitHubService)
 ├── ui/           # Pure rendering (project_card, nav_bar)
@@ -73,10 +73,10 @@ uv pip install -e ".[dev]"
 
 ```bash
 # From project root
-python src/sil_web/app.py
+python src/sif_web/app.py
 
 # Or using uvicorn directly
-uvicorn sil_web.app:app --reload
+uvicorn sif_web.app:app --reload
 ```
 
 Visit: http://localhost:8000
@@ -95,16 +95,16 @@ ruff format .
 mypy src/
 
 # Explore structure
-reveal src/sil_web/
-reveal src/sil_web/domain/models.py
+reveal src/sif_web/
+reveal src/sif_web/domain/models.py
 ```
 
 ## Project Structure
 
 ```
-sil-website/
+sif-website/
 ├── src/
-│   └── sil_web/
+│   └── sif_web/
 │       ├── domain/
 │       │   └── models.py          # Project, Document, Author
 │       ├── services/
@@ -150,7 +150,7 @@ sil-website/
 
 ## Configuration
 
-Edit `src/sil_web/config/settings.py`:
+Edit `src/sif_web/config/settings.py`:
 
 ```python
 # Path to SIL repository
@@ -221,8 +221,8 @@ See [DEPLOYMENT.md](./DEPLOYMENT.md) for:
 
 ```bash
 # Build and run locally
-podman build -t sil-website:dev .
-podman run -p 8000:8000 sil-website:dev
+podman build -t sif-website:dev .
+podman run -p 8000:8000 sif-website:dev
 ```
 
 ## Development Principles

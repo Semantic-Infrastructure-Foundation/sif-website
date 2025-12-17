@@ -409,6 +409,81 @@ podman push registry.mytia.net/sif-website:latest
 
 ---
 
+## Maintenance Mode
+
+When performing documentation consolidation or major updates, you can serve a maintenance page instead of the live application.
+
+### Enabling Maintenance Mode
+
+**On tia-proxy:**
+
+```bash
+# 1. Backup current nginx config
+sudo cp /etc/nginx/sites-available/semanticinfrastructurefoundation.org \
+        /etc/nginx/sites-available/semanticinfrastructurefoundation.org.backup-$(date +%Y%m%d-%H%M%S)
+
+# 2. Update nginx config to serve static maintenance page
+sudo tee /etc/nginx/sites-available/semanticinfrastructurefoundation.org <<'EOF'
+server {
+    listen 443 ssl http2;
+    server_name semanticinfrastructurefoundation.org;
+
+    ssl_certificate /etc/letsencrypt/live/semanticinfrastructurefoundation.org/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/semanticinfrastructurefoundation.org/privkey.pem;
+
+    root /var/www/maintenance/sif;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}
+EOF
+
+# 3. Test and reload nginx
+sudo nginx -t && sudo systemctl reload nginx
+
+# 4. Verify
+curl -I https://semanticinfrastructurefoundation.org
+```
+
+**Note:** Maintenance page HTML should be placed in `/var/www/maintenance/sif/index.html` on tia-proxy.
+
+### Disabling Maintenance Mode
+
+**Restore from backup:**
+
+```bash
+# Find latest backup
+ls -lt /etc/nginx/sites-available/semanticinfrastructurefoundation.org.backup-* | head -1
+
+# Restore (replace timestamp with actual backup)
+sudo cp /etc/nginx/sites-available/semanticinfrastructurefoundation.org.backup-20251216-122655 \
+        /etc/nginx/sites-available/semanticinfrastructurefoundation.org
+
+# Test and reload
+sudo nginx -t && sudo systemctl reload nginx
+
+# Verify proxying works
+curl -s https://semanticinfrastructurefoundation.org/health | jq .
+```
+
+**Expected output:** `{"status":"healthy","service":"sif-website","version":"0.1.0"}`
+
+### Backup Management
+
+**List backups:**
+```bash
+ssh tia-proxy 'ls -lh /etc/nginx/sites-available/semanticinfrastructurefoundation.org.backup-*'
+```
+
+**Backup retention:** Keep backups for 90 days, clean up older:
+```bash
+find /etc/nginx/sites-available/ -name "*.backup-*" -mtime +90 -delete
+```
+
+---
+
 ## Troubleshooting
 
 ### Container won't start

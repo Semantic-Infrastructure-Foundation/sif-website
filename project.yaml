@@ -23,6 +23,14 @@ tags:
   - ai-infrastructure
 
 progress_notes:
+  - date: 2025-12-16
+    note: |
+      Identity crisis resolved: Sync script fixed to use foundation/website-content source.
+      Deployed to production with correct Foundation identity (governance, funding).
+      Maintenance mode capability documented in DEPLOYMENT.md.
+      Production: https://semanticinfrastructurefoundation.org (tia-apps:8011)
+      Staging: https://sif-staging.mytia.net (tia-staging:8082)
+
   - date: 2025-12-10
     note: |
       Website deployed to production (staging + production containers).
@@ -41,12 +49,16 @@ strategy: |
 
 infrastructure:
   website:
-    production: "https://semanticinfrastructurefoundation.org"  # Needs DNS
+    production: "https://semanticinfrastructurefoundation.org"
     staging: "https://sif-staging.mytia.net"
     container_image: "registry.mytia.net/sif-website"
+    package_name: "sif_web"
     ports:
       production: 8011
       staging: 8082
+    servers:
+      production: "tia-apps"
+      staging: "tia-staging"
 
 related_projects:
   - SIL  # Research lab division
@@ -56,8 +68,8 @@ related_projects:
   - GenesisGraph  # Cryptographic provenance
 
 next_steps:
-  - Configure DNS for semanticinfrastructurefoundation.org → 165.227.98.17
-  - Obtain SSL certificate for production domain
-  - Expand content (about, research pages)
+  - Expand content (governance, stewardship pages)
   - File 501(c)(3) nonprofit paperwork
   - Develop funding transparency page
+  - Add more foundation documentation
+  - Document organizational structure
