@@ -174,9 +174,9 @@ Agent Ether provides:
 We publish our work continuously:
 
 **Technical documentation:**
-- [SIL Core Principles](https://semanticinfrastructurelab.org/canonical/principles)
-- [Semantic OS Architecture](https://semanticinfrastructurelab.org/canonical/semantic-os-architecture)
-- [Hierarchical Agency Framework](https://semanticinfrastructurelab.org/canonical/hierarchical-agency-framework)
+- [SIL Design Principles](https://semanticinfrastructurelab.org/foundations/design-principles)
+- [Semantic OS Architecture](https://semanticinfrastructurelab.org/foundations/semantic-os-architecture)
+- [Hierarchical Agency Framework](https://semanticinfrastructurelab.org/research/hierarchical-agency-framework)
 
 **Strategic documentation:**
 - [Funding Strategy](/funding)
