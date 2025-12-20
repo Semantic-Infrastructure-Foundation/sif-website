@@ -13,6 +13,7 @@ from starlette.responses import Response
 from sif_web.config.settings import DOCS_PATH
 from sif_web.routes.health import router as health_router
 from sif_web.routes.pages import create_routes
+from sif_web.routes.robots import router as robots_router
 from sif_web.services.content import ContentService
 from sif_web.services.markdown import MarkdownRenderer
 
@@ -86,6 +87,9 @@ def create_app() -> FastAPI:
 
     # Mount health check (no dependencies)
     app.include_router(health_router)
+
+    # Mount robots.txt (no dependencies)
+    app.include_router(robots_router)
 
     # Create and mount page routes (SIF doesn't use project_service)
     routes = create_routes(content_service, None, markdown_renderer)
