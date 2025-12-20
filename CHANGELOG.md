@@ -1,6 +1,54 @@
-# SIL Website Changelog
+# SIF Website Changelog
 
 ## [Unreleased]
+
+### Added - 2025-12-20 (jade-gleam-1220)
+
+#### SEO Enhancement: robots.txt Endpoint
+- **New route**: `/robots.txt` now available for search engine crawlers
+- **Environment-aware**:
+  - Staging: Disallows all crawlers (prevent indexing of staging site)
+  - Production: Allows all crawlers with sitemap reference
+- **Implementation**: `src/sif_web/routes/robots.py` (mirrors SIL pattern)
+- **Deployment**: Deployed to production (commit c0fad8f)
+- **Status**: ✅ Working in production
+
+**Technical Details:**
+- Returns `text/plain` response with proper HTTP 200
+- References sitemap at `https://semanticinfrastructurefoundation.org/sitemap.xml`
+- Registered in app.py alongside health check route
+
+**Verification:**
+```bash
+curl https://semanticinfrastructurefoundation.org/robots.txt
+# Returns:
+# User-agent: *
+# Allow: /
+#
+# Sitemap: https://semanticinfrastructurefoundation.org/sitemap.xml
+```
+
+### Validated - 2025-12-20 (jade-gleam-1220)
+
+#### Comprehensive Analytics Deployment Validation
+- **Scope**: 25 validation checks across 10 categories
+- **Results**: 24/25 checks passed (96%)
+- **Analytics Script**: ✅ Verified in production HTML
+- **SSL Certificates**: ✅ All valid (expires Mar 11, 2026)
+- **CSP Configuration**: ✅ Properly allows analytics.semanticinfrastructurelab.org
+- **Template Coverage**: ✅ Analytics in both base.html:69 and page.html:30
+- **Plausible Endpoint**: ✅ HTTP/2 200, proper security headers
+- **Event API**: ✅ Tested and accepting pageviews
+- **Dashboard**: ✅ Accessible at analytics.semanticinfrastructurelab.org/login
+
+**Issues Found and Resolved:**
+- robots.txt 404 error → Fixed (see above)
+
+**Infrastructure:**
+- Production server: 164.90.128.28 (DigitalOcean tia-apps)
+- Analytics server: 167.71.107.249 (DigitalOcean tia-dev)
+- Using plausible-sil instance (shared with SIL website)
+- Container: sif-website (commit c0fad8f)
 
 ### Deployed - 2025-12-09
 
